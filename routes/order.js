@@ -1,5 +1,5 @@
 const Order = require('../models/Order')
-const { admin_auth, tokenAuth } = require('./verifytoken')
+const { admin_auth, tokenAuth } = require('./verifyToken')
 
 const router = require('express').Router()
 
