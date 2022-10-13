@@ -1,5 +1,5 @@
 const User = require('../models/User')
-const { tokenAuth, admin_auth } = require('./verifytoken')
+const { tokenAuth, admin_auth } = require('./verifyToken')
 
 const router = require('express').Router()
 
