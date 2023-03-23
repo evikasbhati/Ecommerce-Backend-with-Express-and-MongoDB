@@ -30,5 +30,5 @@ app.use("/api/checkout",paymentRoute)
 
 /////// server /////
 app.listen(process.env.PORT || 5000, () => {
-    console.log("server is running")
+    console.log("Server Online")
 })

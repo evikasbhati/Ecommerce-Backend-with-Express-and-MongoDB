@@ -13,7 +13,8 @@ router.post('/register', async (req, res) => {
     })
     try {
         const savedUser = await newUser.save()
-        res.status(200).json(savedUser)
+        // res.status(200).json(savedUser)
+        res.status(200).json("user registered")
     }
     catch (err) {
         res.status(500).json(err);
@@ -26,16 +27,13 @@ router.post('/login',async(req,resp)=>{
    try{
        /////  find user   ////////
     const user=await User.findOne({username:req.body.username})
-    
-/////  username is correect
-    !user && resp.status(401).json("username or passwrod is incorrect")
-    
     /////// get and decrypt password
     const hashpassword=CryptoJS.AES.decrypt(user.password,process.env.PASS_CODE).toString(CryptoJS.enc.Utf8)
+    
+///// verify username & password  is correect
+    !user && hashpassword!==req.body.password &&  resp.status(401).json("Username or passwrod is incorrect")
+    
 
-    console.log(hashpassword,'-----',req.body.password)
-    ///// verify password 
-    hashpassword!==req.body.password && resp.status(401).json("username orsfdf password is incorrect")
     const accessToken=JWT.sign({
         id:user._id,
         isadmin:user.isAdmin
