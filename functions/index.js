@@ -1,7 +1,7 @@
 const express = require('express')
 const serverless= require("serverless-http");
 
-const api = express()
+const app = express()
 const mongoose = require('mongoose')
 const userroute=require('../routes/user')
 const authRoute=require('../routes/auth')
@@ -20,18 +20,22 @@ mongoose.connect(process.env.MONGO_URL)
 .then(()=>{console.log("DB is connected")})
 .catch((err)=>{err,console.log("can't connect")})
 
-api.use(express.json())
-api.use(cors())
-api.use("/api/user/auth",authRoute)
-api.use("/api/users",userroute)
-api.use("/api/products",productsRoute)
-api.use("/api/carts",cartRoute)
-api.use("/api/orders",orderRoute)
-api.use("/api/checkout",paymentRoute)
+app.use(express.json())
+app.use(cors())
+app.use("/app/user/auth",authRoute)
+app.use("/app/users",userroute)
+app.use("/app/products",productsRoute)
+app.use("/app/carts",cartRoute)
+app.use("/app/orders",orderRoute)
+app.use("/app/checkout",paymentRoute)
 
+
+app.use('/.netlify/functions/index');  // path must route to lambda
 
 /////// server /////
-// api.listen(process.env.PORT || 5000, () => {
+// app.listen(process.env.PORT || 5000, () => {
 //     console.log("Server Online")
 // })
-export const handler=serverless(api)
+module.exports = app;
+
+export const handler=serverless(app)

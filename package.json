@@ -2,10 +2,10 @@
   "name": "api_ecom",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "functions/index.js",
   "scripts": {
-    "start": "./node_modules/.bin/netlify-lambda serve",
-    "build": "./node_modules/.bin/netlify-lambda build "
+    "build": "netlify-lambda build express",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
