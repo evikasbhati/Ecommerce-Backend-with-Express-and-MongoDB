@@ -3,12 +3,12 @@ const serverless= require("serverless-http");
 
 const app = express()
 const mongoose = require('mongoose')
-const userroute=require('../routes/user')
-const authRoute=require('../routes/auth')
-const productsRoute=require('../routes/product')
-const cartRoute=require('../routes/cart')
-const orderRoute=require('../routes/order')
-const paymentRoute=require('../routes/payment')
+const userroute=require('./routes/user')
+const authRoute=require('./routes/auth')
+const productsRoute=require('./routes/product')
+const cartRoute=require('./routes/cart')
+const orderRoute=require('./routes/order')
+const paymentRoute=require('./routes/payment')
 const dotenv=require('dotenv')
 const cors=require('cors')
 
@@ -32,9 +32,6 @@ app.use("/app/checkout",paymentRoute)
 
 
 /////// server /////
-// app.listen(process.env.PORT || 5000, () => {
-//     console.log("Server Online")
-// })
-module.exports = app;
-
-export const handler=serverless(app)
+app.listen(process.env.PORT || 5000, () => {
+    console.log("Server Online")
+})
