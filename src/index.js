@@ -30,10 +30,11 @@ app.use("/app/orders",orderRoute)
 app.use("/app/checkout",paymentRoute)
 
 
-app.use('/.netlify/functions/index');  // path must route to lambda
 
 /////// server /////
 // app.listen(process.env.PORT || 5000, () => {
 //     console.log("Server Online")
 // })
 module.exports = app;
+
+export const handler=serverless(app)
