@@ -4,7 +4,6 @@
   "description": "",
   "main": "functions/index.js",
   "scripts": {
-    "build": "netlify-lambda build express",
     "start": "nodemon server.js"
   },
   "keywords": [],
