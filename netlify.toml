@@ -1,3 +1,2 @@
 [build]
-  command = "nodemon index.js"
   functions = "functions"
