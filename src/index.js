@@ -37,5 +37,3 @@ app.use('/.netlify/functions/index');  // path must route to lambda
 //     console.log("Server Online")
 // })
 module.exports = app;
-
-export const handler=serverless(app)
