@@ -4,7 +4,7 @@
   "description": "",
   "main": "functions/index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "index.js"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,6 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^6.2.4",
     "netlify-lambda": "^2.0.16",
-    "nodemon": "^3.0.1",
     "serverless-http": "^3.2.0",
     "stripe": "^8.210.0"
   }
